@@ -15,10 +15,12 @@ import paginationView from './views/paginationView';
 
 const controlRecipe = async function () {
   try {
-    const id = await window.location.hash.slice(1);
+    const id = window.location.hash.slice(1);
     if (!id) return;
 
     recipeView.renderSpiner();
+
+    resultsView.update(model.getSearchResultPage());
 
     // load recipe
     await model.loadRecipe(id);
@@ -56,8 +58,15 @@ const controlPagination = function (goToPage) {
   paginationView.render(model.state.search);
 };
 
+const controlServings = function (newServings) {
+  model.updateServings(newServings);
+
+  recipeView.update(model.state.recipe);
+};
+
 const init = function () {
   recipeView.addHandlerRender(controlRecipe);
+  recipeView.addHandlerUpdateServings(controlServings);
   searchView.addHandleSearch(controlSearchResults);
   paginationView.addHandlerCkick(controlPagination);
 };
