@@ -9,9 +9,11 @@ export default class View {
 
     this._data = data;
     const markup = this._generateMarkup();
-    this._clear;
+    this._parentElement.innerHTML = '';
+    // this._clear();
     this._parentElement.insertAdjacentHTML('afterbegin', markup);
   }
+
   _clear() {
     this._parentElement.innerHTML = '';
   }
@@ -24,7 +26,8 @@ export default class View {
           </svg>
         </div>
   `;
-    this._clear;
+    this._parentElement.innerHTML = '';
+    // this._clear();
     this._parentElement.insertAdjacentHTML('afterbegin', markup);
   }
 
@@ -38,7 +41,8 @@ export default class View {
             </div>
             <p>${message}</p>
           </div>`;
-    this._clear;
+    this._parentElement.innerHTML = '';
+    // this._clear();
     this._parentElement.insertAdjacentHTML('afterbegin', markup);
   }
 
@@ -52,7 +56,8 @@ export default class View {
             </div>
             <p>${message}</p>
           </div>`;
-    this._clear;
+    this._parentElement.innerHTML = '';
+    // this._clear();
     this._parentElement.insertAdjacentHTML('afterbegin', markup);
   }
 }

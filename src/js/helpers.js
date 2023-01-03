@@ -1,5 +1,5 @@
 import { async } from 'regenerator-runtime';
-import { TIMEOUT_SEC } from './confid';
+import { TIMEOUT_SEC } from './confid.js';
 
 export const timeout = function (s) {
   return new Promise(function (_, reject) {
